@@ -3,4 +3,4 @@ This repository has code that (at a high level) models the data acquisition and 
 
 To model this scenario, the `make_data.py` script generates a random, full-rank 100x500 matrix (the data acquisition function) and 50,000 random 100-element vectors (the position-space data), and then encodes the vectors with the matrix to get the 500-element training vectors (the k-space data). The `train_*_network.py` script(s) train a 50,000x5,000x100 fully-connected neural network using TensorFlow to reconstruct the original vectors from the training vectors.
 
-The trained network is then analyzed by comparing the Cramer-Rao lower bound on the variance of statistical estimators to Monte Carlo noise simulations. [More exposition coming]
+The trained network is then analyzed in the notebook `nn-analysis.ipynb` by comparing the Cramer-Rao lower bound on the variance of statistical estimators to Monte Carlo noise simulations. [More exposition coming]
