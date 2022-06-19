@@ -1,0 +1,10 @@
+name: nn-crlb
+channels:
+  - defaults
+dependencies:
+  - python=3.8.12
+  - numpy
+  - jupyterlab
+  - scipy
+  - matplotlib
+  - tensorflow
