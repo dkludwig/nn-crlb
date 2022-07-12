@@ -10,9 +10,7 @@ To model this scenario, the `make_data.py` script generates a random, full-rank 
 The trained network is then analyzed in the notebook `nn-analysis.ipynb` by comparing the analytical Cramer-Rao lower bound on the variance of statistical estimators to Monte Carlo noise simulations.
 
 ### CRLB
-(Add citations to both stat books)
-
-Have random vector $\vec X \sim f(\vec x;\vec \theta)$ in $\mathbb{R}^n$, estimator $\hat{\vec\theta}:\mathbb{R}^n \rightarrow \mathbb{R}^d$ s.t. $E(\hat{\vec\theta})=\vec g (\vec\theta)$. For this part of the derivation, let all vectors be column vectors and gradients be row vectors (unfortunately this will have to change later on in order to match Tensorflow's syntax, but for now it's easier). Differentiating the definition of $\vec g$:
+The following derivation is adapted from Hogg et al. [1] and Kay [2]: have some random vector $\vec X \sim f(\vec x;\vec \theta)$ in $\mathbb{R}^n$ and an estimator $\hat{\vec\theta}:\mathbb{R}^n \rightarrow \mathbb{R}^d$ s.t. $E[\hat{\vec\theta}(\vec X)]=\vec g (\vec\theta)$. For this part of the derivation, let all vectors be column vectors and gradients be row vectors (unfortunately this will have to change later on in order to match Tensorflow's syntax, but for now it's easier). Differentiating the definition of $\vec g$:
 
 $$\vec g (\vec\theta) = \int_{\mathbb{R}^n} \hat{\vec\theta}(\vec x) f(\vec x; \vec\theta) d^n\vec x
 \Rightarrow \frac{\partial \vec g}{\partial \vec\theta} = \int_{\mathbb{R}^n} \hat{\vec\theta}(\vec x) \frac{\partial f}{\partial \vec\theta}(\vec x; \vec\theta)d^n\vec x$$
@@ -42,3 +40,7 @@ $$[\frac{\partial \vec g}{\partial \vec\theta}]_{ii}^2 = \text{Cov}(\hat{\theta_
 where $[\mathbf{I}(\vec\theta)]_{ij}=E(Z_i Z_j) = E(-\partial Z_i / \partial \theta_j)$ is the Fisher information matrix (the second equality follows from differentiation the normalization condition again). Rearranging,
 
 $$ \text{Var}(\hat{\theta_i}) \geq \frac{[\frac{\partial \vec g}{\partial \vec\theta}]_{ii}^2}{[\mathbf{I}(\vec\theta)]_{ii}}$$
+
+[1] McKean, J. W., Hogg, R. V., Craig, A. T. (2013). Introduction to Mathematical Statistics. Germany: Pearson.
+
+[2] Kay, S. M. (1993). Fundamentals of Statistical Signal Processing: Estimation Theory. United Kingdom: Prentice-Hall.
