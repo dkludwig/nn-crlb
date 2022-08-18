@@ -31,15 +31,7 @@ This implies that
 
 $$ \text{Cov}(\hat{\vec\theta},\vec Z) = E(\hat{\vec\theta} \vec Z) = \frac{\partial \vec g}{\partial \vec\theta}$$
 
-Cauchy-Schwartz ensures that the correlation coefficient satisfies $-1 \leq \rho \leq 1$, so
-
-$$[\frac{\partial \vec g}{\partial \vec\theta}]_{ii}^2 = \text{Cov}(\hat{\theta_i},Z_i)
-= \rho_{ii}^2 \text{Var}(\hat{\theta_i}) \text{Var}(Z_i)
-\leq \text{Var}(\hat{\theta_i}) [\mathbf{I}(\vec\theta)]_{ii}$$
-
-where $[\mathbf{I}(\vec\theta)]_{ij}=E(Z_i Z_j) = E(-\partial Z_i / \partial \theta_j)$ is the Fisher information matrix (the second equality follows from differentiation the normalization condition again). Rearranging,
-
-$$ \text{Var}(\hat{\theta_i}) \geq \frac{[\frac{\partial \vec g}{\partial \vec\theta}]_{ii}^2}{[\mathbf{I}(\vec\theta)]_{ii}}$$
+...TO BE CONTINUED
 
 [1] McKean, J. W., Hogg, R. V., Craig, A. T. (2013). Introduction to Mathematical Statistics. Germany: Pearson.
 
